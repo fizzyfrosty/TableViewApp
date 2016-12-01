@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4300A0A31DF0077E00497FE4 /* Bond.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4300A0A11DF0077E00497FE4 /* Bond.framework */; };
+		4300A0A41DF0077E00497FE4 /* ReactiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4300A0A21DF0077E00497FE4 /* ReactiveKit.framework */; };
 		432564471DECB284001B943A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432564461DECB284001B943A /* AppDelegate.swift */; };
 		432564491DECB284001B943A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432564481DECB284001B943A /* ViewController.swift */; };
 		4325644C1DECB284001B943A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4325644A1DECB284001B943A /* Main.storyboard */; };
@@ -29,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4300A0A11DF0077E00497FE4 /* Bond.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bond.framework; path = Carthage/Build/iOS/Bond.framework; sourceTree = "<group>"; };
+		4300A0A21DF0077E00497FE4 /* ReactiveKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveKit.framework; path = Carthage/Build/iOS/ReactiveKit.framework; sourceTree = "<group>"; };
 		432564431DECB284001B943A /* TableViewApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableViewApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		432564461DECB284001B943A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		432564481DECB284001B943A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +53,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4300A0A31DF0077E00497FE4 /* Bond.framework in Frameworks */,
+				4300A0A41DF0077E00497FE4 /* ReactiveKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,12 +68,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4300A09C1DF0072600497FE4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4300A0A11DF0077E00497FE4 /* Bond.framework */,
+				4300A0A21DF0077E00497FE4 /* ReactiveKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4325643A1DECB284001B943A = {
 			isa = PBXGroup;
 			children = (
 				432564451DECB284001B943A /* TableViewApp */,
 				4325645A1DECB284001B943A /* TableViewAppTests */,
 				432564441DECB284001B943A /* Products */,
+				4300A09C1DF0072600497FE4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,6 +131,7 @@
 				4325643F1DECB284001B943A /* Sources */,
 				432564401DECB284001B943A /* Frameworks */,
 				432564411DECB284001B943A /* Resources */,
+				4300A0A51DF0079E00497FE4 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -204,6 +221,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4300A0A51DF0079E00497FE4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Bond.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4325643F1DECB284001B943A /* Sources */ = {
@@ -354,6 +389,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = EZ3EL33ZBM;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TableViewApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.workhorsebytes.TableViewApp;
@@ -367,6 +406,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = EZ3EL33ZBM;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TableViewApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.workhorsebytes.TableViewApp;
@@ -424,6 +467,7 @@
 				432564621DECB284001B943A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		432564631DECB284001B943A /* Build configuration list for PBXNativeTarget "TableViewAppTests" */ = {
 			isa = XCConfigurationList;
@@ -432,6 +476,7 @@
 				432564651DECB284001B943A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
